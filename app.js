@@ -1,9 +1,15 @@
 var dob=document.querySelector("#input-date");
 var button=document.querySelector("#submit");
 var msg=document.querySelector("#message");
+function convertDatetoFormat(inputFormat) {
+    function pad(s) { return (s < 10) ? '0' + s : s; }
+    var d = new Date(inputFormat);//this is converting to a standard format
+    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('-')
+  }
  function convertDate(date)
  {
-    console.log(date.getMonth());
+     date=convertDatetoFormat(date);
+     //console.log("dob after formatting "+date);
      date = date.replaceAll("-", "");
      return date;
  }
@@ -20,8 +26,8 @@ var msg=document.querySelector("#message");
     //  var reverse=reverse(date);
     //  console.log(reverse);
     var reverse=date.split('').reverse().join('');
-    console.log(reverse);
-    console.log(date);
+    console.log("Reversed date ",reverse);
+    console.log("date after formatting and removing "+date);
     if(date===reverse)
     {
         showMessage(`Your birthday is a palindrome`);
@@ -35,6 +41,8 @@ var msg=document.querySelector("#message");
     msg.innerText = message;
   };
  button.addEventListener('click',function call(){
-        var date=convertDate(dob.value);
+    //console.log("DOB----"+dob.value);    
+    var date=convertDate(dob.value);
+        
         checkPalindrome(date);
  })
