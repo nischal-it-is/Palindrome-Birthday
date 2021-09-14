@@ -11,6 +11,7 @@ function convertDatetoFormat(inputFormat) {
      date=convertDatetoFormat(date);
      //console.log("dob after formatting "+date);
      date = date.replaceAll("-", "");
+     var resultDate=date;
      return date;
  }
 //  function reverse(str)
@@ -30,11 +31,11 @@ function convertDatetoFormat(inputFormat) {
     console.log("date after formatting and removing "+date);
     if(date===reverse)
     {
-        showMessage(`Your birthday is a palindrome`);
+        showMessage(`Your birthday ${resultDate} is a palindrome`);
     }
     else
     {
-        showMessage(`Your Birthday Is not palindrome`);
+        showMessage(`Your Birthday ${resultDate} Is not palindrome`);
     }
  }
  const showMessage = (message) => {
