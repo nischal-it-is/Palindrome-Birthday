@@ -2,15 +2,19 @@ var dateInput=document.querySelector("#input-date");
 var checkBtn =document.querySelector('#submit');
 var output=document.querySelector("#message")
 
+function reverseStr(str) {
+    var listOfChars = str.split("");
+    var reverseListOfChars = listOfChars.reverse();
+    var reversedStr = reverseListOfChars.join("");
+    return reversedStr;
 
-// Your function will return an array of strings for these date formats
+    
+}
 
-// DD-MM-YYYY
-// MM-DD-YYYY
-// YYYY-MM-DD
-// DD-MM-YY
-// MM-DD-YY
-// YY-MM-DD
+function isPalindrome(str) {
+    var reverse =reverseStr(str);
+    return str === reverse;
+}
 
 function clickHandler(e){
   var dateStr=dateInput.value;
@@ -47,16 +51,13 @@ function clickHandler(e){
 }
 
 
-
-checkBtn.addEventListener("click",clickHandler);
-
 function reverseStr(str) {
     var listOfChars = str.split("");
     var reverseListOfChars = listOfChars.reverse();
     var reversedStr = reverseListOfChars.join("");
     return reversedStr;
 
-    // All this can be written in one line:-> return str.split("").reverse().join("");
+    
 }
 
 function isPalindrome(str) {
@@ -85,6 +86,9 @@ function convertDateToStr(date){
 
     return dateStr;
 }
+
+checkBtn.addEventListener("click",clickHandler);
+
 
 function getAllDateFormats(date) {
     var dateStr = convertDateToStr(date);
