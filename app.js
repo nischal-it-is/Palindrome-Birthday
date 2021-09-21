@@ -44,6 +44,13 @@ function convertDatetoFormat(inputFormat) {
  button.addEventListener('click',function call(){
     //console.log("DOB----"+dob.value);    
     var date=convertDate(dob.value);
-
+    if(dob.value=='')
+    {
+        showMessage('Please enter date');
+    }
+    else{
         checkPalindrome(date);
+    }
+
+        
  })
